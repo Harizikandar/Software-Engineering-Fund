@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Track Order</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="logo-container">
+    <img src="../images/logo.png" class="logo">
+</div>
+
+<div class="container">
+
+    <h2>Track Order</h2>
+
+    <table class="tracking-table">
+
+        <tr>
+            <td><strong>Order ID</strong></td>
+            <td id="orderId"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Vendor</strong></td>
+            <td id="vendor"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Pickup Time</strong></td>
+            <td id="pickupTime"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Payment Method</strong></td>
+            <td id="paymentMethod"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Payment Status</strong></td>
+            <td id="paymentStatus"></td>
+        </tr>
+
+        <tr>
+            <td><strong>Order Status</strong></td>
+            <td id="orderStatus"></td>
+        </tr>
+
+    </table>
+
+    <br>
+
+<h3>Order Progress</h3>
+
+<div class="progress-box">
+
+<pre id="progress">
+[X] Order Placed
+
+[X] Payment Confirmed
+
+[X] Preparing Food
+
+[ ] Ready For Pickup
+
+[ ] Completed
+</pre>
+
+</div>
+</pre>
+
+    </div>
+
+    <br>
+
+    <h3>Leave a Comment</h3>
+
+    <textarea
+        id="comment"
+        rows="4"
+        style="width:100%;"
+        placeholder="Share your experience..."></textarea>
+
+    <br><br>
+
+    <button onclick="submitComment()">
+        Submit Comment
+    </button>
+
+    <br><br>
+
+    <div class="buttons">
+
+        <a href="history.html">
+            <button type="button">
+                View Order History
+            </button>
+        </a>
+
+        <a href="vendors.html">
+            <button type="button">
+                Back To Home
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+<script src="../js/app.js"></script>
+
+<script>
+
+loadTracking();
+
+function submitComment(){
+
+    let comment=document.getElementById("comment").value.trim();
+
+    if(comment==""){
+
+        alert("Please enter a comment.");
+
+        return;
+
+    }
+
+    localStorage.setItem("customerComment",comment);
+
+    alert("Thank you for your feedback!");
+
+    document.getElementById("comment").value="";
+
+}
+
+</script>
+
+</body>
+
+</html>
